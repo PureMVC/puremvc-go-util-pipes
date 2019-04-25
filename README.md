@@ -7,7 +7,7 @@ This utility provides the capability for creating pipelines that pass messages b
 
 ## Installation
 ```
-go get github.com/puremvc/puremvc-go-util-pipes
+require github.com/puremvc/puremvc-go-util-pipes v1.0.0
 ```
 
 ## Platforms / Technologies
