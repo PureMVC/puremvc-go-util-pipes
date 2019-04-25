@@ -5,6 +5,11 @@ This utility provides the capability for creating pipelines that pass messages b
 * [API Docs]()
 * [Unit Tests](http://puremvc.org/pages/images/screenshots/PureMVC-Shot-Go-Pipes-UnitTests.png)
 
+## Installation
+```
+go get github.com/puremvc/puremvc-go-util-pipes
+```
+
 ## Platforms / Technologies
 * [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD)
 * [Linux](https://en.wikipedia.org/wiki/Linux)
