@@ -2,7 +2,7 @@
 
 This utility provides the capability for creating pipelines that pass messages between Cores in a PureMVC MultiCore-based application. Pipelines can contain filters, queues, splitting and merging tees, and more. Unit Tests included. 
 
-* [API Docs]()
+* [API Docs](https://godoc.org/github.com/PureMVC/puremvc-go-util-pipes)
 * [Unit Tests](http://puremvc.org/pages/images/screenshots/PureMVC-Shot-Go-Pipes-UnitTests.png)
 
 ## Installation
