@@ -45,7 +45,7 @@ func TestConnectingToAPipe(t *testing.T) {
 */
 func TestReceiveMessageViaPipeListener(t *testing.T) {
 	// create a message
-	messageToSend := messages.NewMessage(messages.NORMAL, &Test{testVal: 1}, []byte(<testMessage testAtt='Hello'/>), messages.PRIORITY_HIGH)
+	messageToSend := messages.NewMessage(messages.NORMAL, &Test{testVal: 1}, []byte(`<testMessage testAtt='Hello'/>`), messages.PRIORITY_HIGH)
 
 	// create pipe and listener
 	pipe := &plumbing.Pipe{}

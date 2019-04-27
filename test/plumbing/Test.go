@@ -23,7 +23,7 @@ type Test struct {
 }
 
 type TestMessage struct {
-	TestAtt string xml:"testAtt,attr"
+	TestAtt string `xml:"testAtt,attr"`
 }
 
 type Rect struct {

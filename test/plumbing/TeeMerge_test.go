@@ -83,10 +83,10 @@ func TestConnectingIOPipes(t *testing.T) {
 */
 func TestReceiveMessagesFromTwoPipesViaTeeMerge(t *testing.T) {
 	// create a message to send on pipe 1
-	pipe1Message := messages.NewMessage(messages.NORMAL, Test{testVal: 1}, []byte(<testMessage testAtt='Pipe1Message'/>), messages.PRIORITY_LOW)
+	pipe1Message := messages.NewMessage(messages.NORMAL, Test{testVal: 1}, []byte(`<testMessage testAtt='Pipe1Message'/>`), messages.PRIORITY_LOW)
 
 	// create a message to send on pipe 2
-	pipe2Message := messages.NewMessage(messages.NORMAL, Test{testVal: 2}, []byte(<testMessage testAtt='Pipe2Message'/>), messages.PRIORITY_HIGH)
+	pipe2Message := messages.NewMessage(messages.NORMAL, Test{testVal: 2}, []byte(`<testMessage testAtt='Pipe2Message'/>`), messages.PRIORITY_HIGH)
 
 	// create pipes 1 and 2
 	pipe1 := &plumbing.Pipe{}

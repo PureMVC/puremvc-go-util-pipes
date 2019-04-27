@@ -22,7 +22,7 @@ Test the Message class.
   Tests the constructor parameters and getters.
 */
 func TestConstructorAndGetters(t *testing.T) {
-	var message = messages.NewMessage(messages.NORMAL, &Test{testVal: 1}, []byte(<testMessage testAtt='Hello'/>), messages.PRIORITY_HIGH)
+	var message = messages.NewMessage(messages.NORMAL, &Test{testVal: 1}, []byte(`<testMessage testAtt='Hello'/>`), messages.PRIORITY_HIGH)
 
 	// create a message with complete constructor args
 	var msg = TestMessage{}
@@ -49,7 +49,7 @@ func TestConstructorAndGetters(t *testing.T) {
 func TestSettersAndGetters(t *testing.T) {
 	message := messages.NewMessage(messages.NORMAL, nil, nil, messages.PRIORITY_MED)
 	message.SetHeader(&Test{testVal: 1})
-	message.SetBody([]byte(<testMessage testAtt='Hello'/>))
+	message.SetBody([]byte(`<testMessage testAtt='Hello'/>`))
 	message.SetPriority(messages.PRIORITY_LOW)
 
 	var msg = TestMessage{}
