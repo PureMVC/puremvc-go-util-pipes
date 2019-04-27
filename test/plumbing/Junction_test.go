@@ -15,11 +15,11 @@ import (
 	"testing"
 )
 
-/**
+/*
 Test the Junction class.
 */
 
-/**
+/*
   Test registering an INPUT pipe to a junction.
 
   Tests that the INPUT pipe is successfully registered and
@@ -75,7 +75,7 @@ func TestRegisterRetrieveAndRemoveInputPipe(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test registering an OUTPUT pipe to a junction.
 
   Tests that the OUTPUT pipe is successfully registered and
@@ -131,7 +131,7 @@ func TestRegisterRetrieveAndRemoveOutputPipe(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test adding a PipeListener to an Input Pipe.
 
   Registers an INPUT Pipe with a Junction, then tests
@@ -185,7 +185,7 @@ func TestAddingPipeListenerToAnInputPipe(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test using sendMessage on an OUTPUT pipe.
 
   Creates a Pipe, Junction and Message.

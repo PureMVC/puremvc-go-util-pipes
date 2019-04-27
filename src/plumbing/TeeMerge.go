@@ -10,7 +10,7 @@ package plumbing
 
 import "github.com/puremvc/puremvc-go-util-pipes/src/interfaces"
 
-/**
+/*
 Merging Pipe Tee.
 
 Writes the messages from multiple input pipelines into
@@ -20,7 +20,7 @@ type TeeMerge struct {
 	Pipe
 }
 
-/**
+/*
   Connect an input IPipeFitting.
 
   NOTE: You can connect as many inputs as you want

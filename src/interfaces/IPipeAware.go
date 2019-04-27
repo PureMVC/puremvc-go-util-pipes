@@ -8,7 +8,7 @@
 
 package interfaces
 
-/**
+/*
 Pipe Aware interface.
 
 Can be implemented by any PureMVC Core that wishes
@@ -16,7 +16,7 @@ to communicate with other Cores using the Pipes
 utility.
 */
 type IPipeAware interface {
-	/**
+	/*
 	  Connect input Pipe Fitting.
 
 	  - parameter name: name of the input pipe
@@ -24,7 +24,7 @@ type IPipeAware interface {
 	*/
 	AcceptInputPipe(name string, pipe IPipeFitting)
 
-	/**
+	/*
 	  Connect output Pipe Fitting.
 
 	  - parameter name: name of the input pipe

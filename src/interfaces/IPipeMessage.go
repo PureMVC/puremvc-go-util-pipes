@@ -8,11 +8,11 @@
 
 package interfaces
 
-/**
+/*
 Pipe Message Interface.
 
-`IPipeMessage`s are objects written intoto a Pipeline,
-composed of `IPipeFitting`s. The message is passed from
+IPipeMessages are objects written intoto a Pipeline,
+composed of IPipeFittings. The message is passed from
 one fitting to the next in syncrhonous fashion.
 
 Depending on type, messages may be handled differently by the
@@ -20,7 +20,7 @@ fittings.
 */
 type IPipeMessage interface {
 	Type() string                 // Get type of this message
-	SetType(type_ string)         // Set type of this message
+	SetType(_type string)         // Set type of this message
 	Priority() int                // Get priority of this message
 	SetPriority(priority int)     // Set priority of this message
 	Header() interface{}          // Get header of this message

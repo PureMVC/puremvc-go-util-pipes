@@ -15,7 +15,7 @@ import (
 	"sync"
 )
 
-/**
+/*
 Pipe Queue.
 
 The Queue always stores inbound messages until you send it
@@ -59,7 +59,7 @@ func (self *Queue) Write(message interfaces.IPipeMessage) bool {
 	return success
 }
 
-/**
+/*
   Store a message.
 
   - parameter message: the IPipeMessage to enqueue.
@@ -74,7 +74,7 @@ func (self *Queue) Store(message interfaces.IPipeMessage) {
 	}
 }
 
-/**
+/*
   Sort the Messages by priority.
 */
 type SortByPriority []interfaces.IPipeMessage
@@ -89,7 +89,7 @@ func (s SortByPriority) Less(i, j int) bool {
 	return s[i].Priority() < s[j].Priority()
 }
 
-/**
+/*
   Flush the queue.
 
   NOTE: This empties the queue.

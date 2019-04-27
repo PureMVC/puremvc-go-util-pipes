@@ -14,7 +14,7 @@ const (
 	FIFO  string = "http://puremvc.org/namespaces/pipes/messages/normal/queue/fifo"  // Toggle to FIFO operation mode (default behavior)
 )
 
-/**
+/*
 Queue Control Message.
 
 A special message for controlling the behavior of a Queue.
@@ -31,7 +31,9 @@ type QueueControlMessage struct {
 	Message
 }
 
-// Constructor
-func NewQueueControlMessage(type_ string) *QueueControlMessage {
-	return &QueueControlMessage{Message: Message{_type: type_, header: nil, body: nil, priority: PRIORITY_MED}}
+/*
+	Constructor
+ */
+func NewQueueControlMessage(_type string) *QueueControlMessage {
+	return &QueueControlMessage{Message: Message{_type: _type, header: nil, body: nil, priority: PRIORITY_MED}}
 }

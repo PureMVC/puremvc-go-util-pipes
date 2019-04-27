@@ -14,11 +14,11 @@ import (
 	"testing"
 )
 
-/**
+/*
 Test the Pipe class.
 */
 
-/**
+/*
  * Test the constructor.
  */
 func TestConstructor(t *testing.T) {
@@ -30,7 +30,7 @@ func TestConstructor(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test connecting and disconnecting two pipes.
 */
 func TestConnectingAndDisconnectingTwoPipes(t *testing.T) {
@@ -59,7 +59,7 @@ func TestConnectingAndDisconnectingTwoPipes(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test attempting to connect a pipe to a pipe with an output already connected.
 */
 func TestConnectingToAConnectedPipe(t *testing.T) {

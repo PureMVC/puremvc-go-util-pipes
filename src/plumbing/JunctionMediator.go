@@ -19,7 +19,7 @@ const (
 	ACCEPT_OUTPUT_PIPE = "acceptOutputPipe"
 )
 
-/**
+/*
 Junction Mediator.
 
 A base class for handling the Pipe Junction in an IPipeAware
@@ -29,11 +29,11 @@ type JunctionMediator struct {
 	mediator.Mediator
 }
 
-/**
+/*
   List Notification Interests.
 
   Returns the notification interests for this base class.
-  Override in subclass and call `super.listNotificationInterests`
+  Override in subclass and call super.listNotificationInterests
   to get this list, then add any sublcass interests to
   the array before returning.
 */
@@ -43,14 +43,14 @@ func (self *JunctionMediator) ListNotificationInterests() []string {
 		ACCEPT_OUTPUT_PIPE}
 }
 
-/**
+/*
   Handle Notification.
 
   This provides the handling for common junction activities. It
-  accepts input and output pipes in response to `IPipeAware`
+  accepts input and output pipes in response to IPipeAware
   interface calls.
 
-  Override in subclass, and call `super.handleNotification`
+  Override in subclass, and call super.handleNotification
   if none of the subclass-specific notification names are matched.
 */
 func (self *JunctionMediator) HandleNotification(notification puremvc.INotification) {
@@ -71,7 +71,7 @@ func (self *JunctionMediator) HandleNotification(notification puremvc.INotificat
 	}
 }
 
-/**
+/*
   Handle incoming pipe messages.
 
   Override in subclass and handle messages appropriately for the module.
@@ -80,7 +80,7 @@ func (self *JunctionMediator) HandlePipeMessage(message interfaces.IPipeMessage)
 
 }
 
-/**
+/*
   The Junction for this Module.
 */
 func (self *JunctionMediator) Junction() *Junction {

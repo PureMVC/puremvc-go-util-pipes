@@ -13,7 +13,7 @@ import (
 	"github.com/puremvc/puremvc-go-util-pipes/src/messages"
 )
 
-/**
+/*
 Pipe Filter.
 
 Filters may modify the contents of messages before writing them to
@@ -29,7 +29,7 @@ type Filter struct {
 	Mode   string
 }
 
-/**
+/*
   Handle the incoming message.
 
   If message type is normal, filter the message (unless in BYPASS mode)
@@ -59,7 +59,8 @@ type Filter struct {
   to this named filter instance. Otherwise it writes through to the
   output.
 
-  - parameter message: `IPipeMessage` to write on the output
+  - parameter message: IPipeMessage to write on the output
+
   - returns: Boolean True if the filter process does not throw an error and subsequent operations
   in the pipeline succede.
 */

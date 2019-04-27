@@ -15,11 +15,11 @@ import (
 	"testing"
 )
 
-/**
+/*
 Test the TeeSplit class.
 */
 
-/**
+/*
   Test connecting and disconnecting I/O Pipes.
 
   Connect an input and several output pipes to a splitting tee.
@@ -80,7 +80,7 @@ func TestConnectingAndDisconnectingIOPipes(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test disconnectFitting method.
 
   Connect several output pipes to a splitting tee.
@@ -148,7 +148,7 @@ func TestDisconnectFitting(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test receiving messages from two pipes using a TeeMerge.
 */
 func TestReceiveMessagesFromTwoTeeSplitOutputs(t *testing.T) {

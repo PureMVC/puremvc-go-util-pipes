@@ -13,7 +13,7 @@ import (
 	"sync"
 )
 
-/**
+/*
 Splitting Pipe Tee.
 
 Writes input messages to multiple output pipe fittings.
@@ -23,7 +23,7 @@ type TeeSplit struct {
 	outputsMutex sync.RWMutex // Mutex for messagesQueue
 }
 
-/**
+/*
   Connect the output IPipeFitting.
 
   NOTE: You can connect as many outputs as you want
@@ -39,7 +39,7 @@ func (self *TeeSplit) Connect(output interfaces.IPipeFitting) bool {
 	return true
 }
 
-/**
+/*
   Disconnect the most recently connected output fitting. (LIFO)
 
   To disconnect all outputs, you must call this
@@ -56,15 +56,15 @@ func (self *TeeSplit) Disconnect() interfaces.IPipeFitting {
 	return disconnectedFitting
 }
 
-/**
+/*
   Disconnect a given output fitting.
 
   If the fitting passed in is connected
-  as an output of this `TeeSplit`, then
+  as an output of this TeeSplit, then
   it is disconnected and the reference returned.
 
   If the fitting passed in is not connected as an
-  output of this `TeeSplit`, then `nil`
+  output of this TeeSplit, then nil
   is returned.
 
   - parameter output: the IPipeFitting to connect for output.
@@ -84,13 +84,14 @@ func (self *TeeSplit) DisconnectFitting(target interfaces.IPipeFitting) interfac
 	return removed
 }
 
-/**
+/*
   Write the message to all connected outputs.
 
   Returns false if any output returns false,
   but all outputs are written to regardless.
 
   - parameter message: the message to write
+
   - returns: Boolean whether any connected outputs failed
 */
 func (self *TeeSplit) Write(message interfaces.IPipeMessage) bool {

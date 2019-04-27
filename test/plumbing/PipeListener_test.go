@@ -15,11 +15,11 @@ import (
 	"testing"
 )
 
-/**
+/*
 Test the PipeListener class.
 */
 
-/**
+/*
   Test connecting a pipe listener to a pipe.
 */
 func TestConnectingToAPipe(t *testing.T) {
@@ -40,12 +40,12 @@ func TestConnectingToAPipe(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test receiving a message from a pipe using a PipeListener.
 */
 func TestReceiveMessageViaPipeListener(t *testing.T) {
 	// create a message
-	messageToSend := messages.NewMessage(messages.NORMAL, &Test{testVal: 1}, []byte(`<testMessage testAtt='Hello'/>`), messages.PRIORITY_HIGH)
+	messageToSend := messages.NewMessage(messages.NORMAL, &Test{testVal: 1}, []byte(<testMessage testAtt='Hello'/>), messages.PRIORITY_HIGH)
 
 	// create pipe and listener
 	pipe := &plumbing.Pipe{}

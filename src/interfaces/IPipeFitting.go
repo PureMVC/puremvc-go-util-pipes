@@ -8,17 +8,17 @@
 
 package interfaces
 
-/**
+/*
 Pipe Fitting Interface.
 
-An `IPipeFitting` can be connected to other
-`IPipeFittings`, forming a Pipeline.
-`IPipeMessages` are written to one end of a
+An IPipeFitting can be connected to other
+IPipeFittings, forming a Pipeline.
+IPipeMessages are written to one end of a
 Pipeline by some client code. The messages are then
 transfered in synchronous fashion from one fitting to the next.
 */
 type IPipeFitting interface {
-	/**
+	/*
 	  Connect another Pipe Fitting to the output.
 
 	  Fittings connect and write to
@@ -30,7 +30,7 @@ type IPipeFitting interface {
 	*/
 	Connect(output IPipeFitting) bool
 
-	/**
+	/*
 	  Disconnect the Pipe Fitting connected to the output.
 
 	  This disconnects the output fitting, returning a
@@ -44,7 +44,7 @@ type IPipeFitting interface {
 	*/
 	Disconnect() IPipeFitting
 
-	/**
+	/*
 	  Write the message to the output Pipe Fitting.
 
 	  There may be subsequent filters and tees
@@ -57,6 +57,8 @@ type IPipeFitting interface {
 	  from this method, then the client who originally
 	  wrote into the pipe can take action, such as
 	  rolling back changes.
+
+	 - returns: bool true if write was successful or else false
 	*/
 	Write(message IPipeMessage) bool
 }

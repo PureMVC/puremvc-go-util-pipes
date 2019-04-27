@@ -15,11 +15,11 @@ import (
 	"testing"
 )
 
-/**
+/*
 Test the Queue class.
 */
 
-/**
+/*
   Test connecting input and output pipes to a queue.
 */
 func TestConnectingIOPipesQueue(t *testing.T) {
@@ -54,7 +54,7 @@ func TestConnectingIOPipesQueue(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test writing multiple messages to the Queue followed by a Flush message.
 
   Creates messages to send to the queue.
@@ -151,7 +151,7 @@ func TestWritingMultipleMessagesAndFlush(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test the Sort-by-Priority and FIFO modes.
 
   Creates messages to send to the queue, priorities unsorted.

@@ -11,6 +11,7 @@ require github.com/puremvc/puremvc-go-util-pipes v1.0.0
 ```
 
 ## Platforms / Technologies
+* [Go](https://en.wikipedia.org/wiki/Go_(programming_language))
 * [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD)
 * [Linux](https://en.wikipedia.org/wiki/Linux)
 * [MacOS](https://en.wikipedia.org/wiki/MacOS)

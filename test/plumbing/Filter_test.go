@@ -15,11 +15,11 @@ import (
 	"testing"
 )
 
-/**
+/*
 Test the Filter class.
 */
 
-/**
+/*
   Test connecting input and output pipes to a filter as well as disconnecting the output.
 */
 func TestConnectingAndDisconnectingIOPipesFilter(t *testing.T) {
@@ -60,7 +60,7 @@ func TestConnectingAndDisconnectingIOPipesFilter(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test applying filter to a normal message.
 */
 func TestFilteringNormalMessage(t *testing.T) {
@@ -114,7 +114,7 @@ func TestFilteringNormalMessage(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test setting filter to bypass mode, writing, then setting back to filter mode and writing.
 */
 func TestBypassAndFilterModeToggle(t *testing.T) {
@@ -214,7 +214,7 @@ func TestBypassAndFilterModeToggle(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test setting filter parameters by sending control message.
 */
 func TestSetParamsByControlMessage(t *testing.T) {
@@ -277,7 +277,7 @@ func TestSetParamsByControlMessage(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test setting filter function by sending control message.
 */
 func TestSetFilterByControlMessage(t *testing.T) {
@@ -345,25 +345,25 @@ func TestSetFilterByControlMessage(t *testing.T) {
 	}
 }
 
-/**
+/*
   Test using a filter function to stop propagation of a message.
 
   The way to stop propagation of a message from within a filter
   is to throw an error from the filter function. This test creates
   two NORMAL messages, each with Rectangle objects that contain
-  a `bozoLevel` property. One has this property set to
+  a bozoLevel property. One has this property set to
   10, the other to 3.
 
   Creates a Filter, named 'bozoFilter' with an anonymous pipe listener
   feeding the output back into this test. The filter funciton is an
   anonymous function that throws an error if the message's bozoLevel
-  property is greater than the filter parameter `bozoThreshold`.
-  the anonymous filter parameters object has a `bozoThreshold`
+  property is greater than the filter parameter bozoThreshold.
+  the anonymous filter parameters object has a bozoThreshold
   value of 5.
 
   The messages are written to the filter and it is shown that the
-  message with the `bozoLevel` of 10 is not written, while
-  the message with the `bozoLevel` of 3 is.
+  message with the bozoLevel of 10 is not written, while
+  the message with the bozoLevel of 3 is.
 */
 func TestUseFilterToStopAMessage(t *testing.T) {
 	// create messages to send to the queue
