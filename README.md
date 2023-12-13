@@ -1,4 +1,4 @@
-## [PureMVC](http://puremvc.github.com/) [Go](https://github.com/PureMVC/puremvc-go-multicore-framework/wiki) Utility: Pipes
+## [PureMVC](http://puremvc.github.com/) [Go](https://github.com/PureMVC/puremvc-go-multicore-framework/wiki) Utility: Pipes [![Go](https://github.com/PureMVC/puremvc-go-util-pipes/actions/workflows/go.yml/badge.svg)](https://github.com/PureMVC/puremvc-go-util-pipes/actions/workflows/go.yml)
 
 This utility provides the capability for creating pipelines that pass messages between Cores in a PureMVC MultiCore-based application. Pipelines can contain filters, queues, splitting and merging tees, and more. Unit Tests included. 
 
