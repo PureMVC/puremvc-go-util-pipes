@@ -9,7 +9,7 @@
 package interfaces
 
 /*
-Pipe Aware interface.
+IPipeAware Pipe Aware interface.
 
 Can be implemented by any PureMVC Core that wishes
 to communicate with other Cores using the Pipes

@@ -20,7 +20,7 @@ const (
 )
 
 /*
-Junction Mediator.
+JunctionMediator Junction Mediator.
 
 A base class for handling the Pipe Junction in an IPipeAware
 Core.
@@ -30,12 +30,12 @@ type JunctionMediator struct {
 }
 
 /*
-  List Notification Interests.
+ListNotificationInterests  List Notification Interests.
 
-  Returns the notification interests for this base class.
-  Override in subclass and call super.listNotificationInterests
-  to get this list, then add any sublcass interests to
-  the array before returning.
+Returns the notification interests in this base class.
+Override in subclass and call super.listNotificationInterests
+to get this list, then add any sublcass interests to
+the array before returning.
 */
 func (self *JunctionMediator) ListNotificationInterests() []string {
 	return []string{
@@ -44,14 +44,14 @@ func (self *JunctionMediator) ListNotificationInterests() []string {
 }
 
 /*
-  Handle Notification.
+HandleNotification  Handle Notification.
 
-  This provides the handling for common junction activities. It
-  accepts input and output pipes in response to IPipeAware
-  interface calls.
+This provides the handling for common junction activities. It
+accepts input and output pipes in response to IPipeAware
+interface calls.
 
-  Override in subclass, and call super.handleNotification
-  if none of the subclass-specific notification names are matched.
+Override in subclass, and call super.handleNotification
+if none of the subclass-specific notification names are matched.
 */
 func (self *JunctionMediator) HandleNotification(notification puremvc.INotification) {
 	switch notification.Name() {
@@ -72,16 +72,16 @@ func (self *JunctionMediator) HandleNotification(notification puremvc.INotificat
 }
 
 /*
-  Handle incoming pipe messages.
+HandlePipeMessage Handle incoming pipe messages.
 
-  Override in subclass and handle messages appropriately for the module.
+Override in subclass and handle messages appropriately for the module.
 */
 func (self *JunctionMediator) HandlePipeMessage(message interfaces.IPipeMessage) {
 
 }
 
 /*
-  The Junction for this Module.
+Junction The Junction for this Module.
 */
 func (self *JunctionMediator) Junction() *Junction {
 	return self.ViewComponent.(*Junction)

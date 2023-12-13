@@ -15,7 +15,7 @@ const (
 )
 
 /*
-Queue Control Message.
+QueueControlMessage Queue Control Message.
 
 A special message for controlling the behavior of a Queue.
 
@@ -32,8 +32,8 @@ type QueueControlMessage struct {
 }
 
 /*
-	Constructor
- */
+NewQueueControlMessage Constructor
+*/
 func NewQueueControlMessage(_type string) *QueueControlMessage {
 	return &QueueControlMessage{Message: Message{_type: _type, header: nil, body: nil, priority: PRIORITY_MED}}
 }

@@ -11,7 +11,7 @@ package plumbing
 import "github.com/puremvc/puremvc-go-util-pipes/src/interfaces"
 
 /*
-Pipe.
+Pipe Pipe.
 
 This is the most basic IPipeFitting,
 simply allowing the connection of an output
@@ -22,14 +22,14 @@ type Pipe struct {
 }
 
 /*
-  Connect another PipeFitting to the output.
+Connect another PipeFitting to the output.
 
-  PipeFittings connect to and write to other
-  PipeFittings in a one-way, syncrhonous chain.
+PipeFittings connect to and write to other
+PipeFittings in a one-way, synchronous chain.
 
-  - parameter output: IPipeFitting the output fitting to connect.
+- parameter output: IPipeFitting the output fitting to connect.
 
-  - returns: Bool true if no other fitting was already connected.
+- returns: Bool true if no other fitting was already connected.
 */
 func (self *Pipe) Connect(output interfaces.IPipeFitting) bool {
 	success := false
@@ -41,16 +41,16 @@ func (self *Pipe) Connect(output interfaces.IPipeFitting) bool {
 }
 
 /*
-  Disconnect the Pipe Fitting connected to the output.
+Disconnect the Pipe Fitting connected to the output.
 
-  This disconnects the output fitting, returning a
-  reference to it. If you were splicing another fitting
-  into a pipeline, you need to keep (at least briefly)
-  a reference to both sides of the pipeline in order to
-  connect them to the input and output of whatever
-  fitting that you're splicing in.
+This disconnects the output fitting, returning a
+reference to it. If you were splicing another fitting
+into a pipeline, you need to keep (at least briefly)
+a reference to both sides of the pipeline in order to
+connect them to the input and output of whatever
+fitting that you're splicing in.
 
-  - returns: IPipeFitting the now disconnected output fitting
+- returns: IPipeFitting the now disconnected output fitting
 */
 func (self *Pipe) Disconnect() interfaces.IPipeFitting {
 	disconnectedFitting := self.Output
@@ -59,11 +59,11 @@ func (self *Pipe) Disconnect() interfaces.IPipeFitting {
 }
 
 /*
-  Write the message to the connected output.
+Write the message to the connected output.
 
-  - parameter message: the message to write
+- parameter message: the message to write
 
-  - returns: Bool whether any connected downpipe outputs failed
+- returns: Bool whether any connected down-pipe outputs failed
 */
 func (self *Pipe) Write(message interfaces.IPipeMessage) bool {
 	return self.Output.Write(message)

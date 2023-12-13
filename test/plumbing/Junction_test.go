@@ -20,15 +20,15 @@ Test the Junction class.
 */
 
 /*
-  Test registering an INPUT pipe to a junction.
+Test registering an INPUT pipe to a junction.
 
-  Tests that the INPUT pipe is successfully registered and
-  that the hasPipe and hasInputPipe methods work. Then tests
-  that the pipe can be retrieved by name.
+Tests that the INPUT pipe is successfully registered and
+that the hasPipe and hasInputPipe methods work. Then tests
+that the pipe can be retrieved by name.
 
-  Finally, it removes the registered INPUT pipe and tests
-  that all the previous assertions about it's registration
-  and accessability via the Junction are no longer true.
+Finally, it removes the registered INPUT pipe and tests
+that all the previous assertions about its registration
+and accessibility via the Junction are no longer true.
 */
 func TestRegisterRetrieveAndRemoveInputPipe(t *testing.T) {
 	// create pipe connected to this test with a pipelistener
@@ -76,15 +76,15 @@ func TestRegisterRetrieveAndRemoveInputPipe(t *testing.T) {
 }
 
 /*
-  Test registering an OUTPUT pipe to a junction.
+Test registering an OUTPUT pipe to a junction.
 
-  Tests that the OUTPUT pipe is successfully registered and
-  that the hasPipe and hasOutputPipe methods work. Then tests
-  that the pipe can be retrieved by name.
+Tests that the OUTPUT pipe is successfully registered and
+that the hasPipe and hasOutputPipe methods work. Then tests
+that the pipe can be retrieved by name.
 
-  Finally, it removes the registered OUTPUT pipe and tests
-  that all the previous assertions about it's registration
-  and accessability via the Junction are no longer true.
+Finally, it removes the registered OUTPUT pipe and tests
+that all the previous assertions about its registration
+and accessibility via the Junction are no longer true.
 */
 func TestRegisterRetrieveAndRemoveOutputPipe(t *testing.T) {
 	// create pipe connected to this test with a pipelistener
@@ -132,13 +132,13 @@ func TestRegisterRetrieveAndRemoveOutputPipe(t *testing.T) {
 }
 
 /*
-  Test adding a PipeListener to an Input Pipe.
+Test adding a PipeListener to an Input Pipe.
 
-  Registers an INPUT Pipe with a Junction, then tests
-  the Junction's addPipeListener method, connecting
-  the output of the pipe back into to the test. If this
-  is successful, it sends a message down the pipe and
-  checks to see that it was received.
+Registers an INPUT Pipe with a Junction, then tests
+the Junction's addPipeListener method, connecting
+the output of the pipe back into to the test. If this
+is successful, it sends a message down the pipe and
+checks to see that it was received.
 */
 func TestAddingPipeListenerToAnInputPipe(t *testing.T) {
 	// create pipe
@@ -186,13 +186,13 @@ func TestAddingPipeListenerToAnInputPipe(t *testing.T) {
 }
 
 /*
-  Test using sendMessage on an OUTPUT pipe.
+Test using sendMessage on an OUTPUT pipe.
 
-  Creates a Pipe, Junction and Message.
-  Adds the PipeListener to the Pipe.
-  Adds the Pipe to the Junction as an OUTPUT pipe.
-  uses the Junction's sendMessage method to send
-  the Message, then checks that it was received.
+Creates a Pipe, Junction and Message.
+Adds the PipeListener to the Pipe.
+Adds the Pipe to the Junction as an OUTPUT pipe.
+uses the Junction's sendMessage method to send
+the Message, then checks that it was received.
 */
 func TestSendMessageOnAnOutputPipe(t *testing.T) {
 	// create pipe

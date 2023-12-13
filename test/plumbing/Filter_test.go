@@ -20,7 +20,7 @@ Test the Filter class.
 */
 
 /*
-  Test connecting input and output pipes to a filter as well as disconnecting the output.
+Test connecting input and output pipes to a filter as well as disconnecting the output.
 */
 func TestConnectingAndDisconnectingIOPipesFilter(t *testing.T) {
 	// create output pipes 1
@@ -61,7 +61,7 @@ func TestConnectingAndDisconnectingIOPipesFilter(t *testing.T) {
 }
 
 /*
-  Test applying filter to a normal message.
+Test applying filter to a normal message.
 */
 func TestFilteringNormalMessage(t *testing.T) {
 	// create messages to send to the queue
@@ -115,7 +115,7 @@ func TestFilteringNormalMessage(t *testing.T) {
 }
 
 /*
-  Test setting filter to bypass mode, writing, then setting back to filter mode and writing.
+Test setting filter to bypass mode, writing, then setting back to filter mode and writing.
 */
 func TestBypassAndFilterModeToggle(t *testing.T) {
 	// create messages to send to the queue
@@ -178,10 +178,10 @@ func TestBypassAndFilterModeToggle(t *testing.T) {
 	}
 
 	// create filter control message
-	filterMessge := messages.NewFilterControlMessage(messages.FILTER, "scale", nil, nil)
+	filterMessage := messages.NewFilterControlMessage(messages.FILTER, "scale", nil, nil)
 
 	// write bypass control message to the filter
-	filterWritten := filter.Write(filterMessge)
+	filterWritten := filter.Write(filterMessage)
 
 	//let write normal message to the filter again
 	written2 := filter.Write(message)
@@ -215,7 +215,7 @@ func TestBypassAndFilterModeToggle(t *testing.T) {
 }
 
 /*
-  Test setting filter parameters by sending control message.
+Test setting filter parameters by sending control message.
 */
 func TestSetParamsByControlMessage(t *testing.T) {
 	// create messages to send to the queue
@@ -278,7 +278,7 @@ func TestSetParamsByControlMessage(t *testing.T) {
 }
 
 /*
-  Test setting filter function by sending control message.
+Test setting filter function by sending control message.
 */
 func TestSetFilterByControlMessage(t *testing.T) {
 	// create messages to send to the queue
@@ -346,24 +346,24 @@ func TestSetFilterByControlMessage(t *testing.T) {
 }
 
 /*
-  Test using a filter function to stop propagation of a message.
+Test using a filter function to stop propagation of a message.
 
-  The way to stop propagation of a message from within a filter
-  is to throw an error from the filter function. This test creates
-  two NORMAL messages, each with Rectangle objects that contain
-  a bozoLevel property. One has this property set to
-  10, the other to 3.
+The way to stop propagation of a message from within a filter
+is to throw an error from the filter function. This test creates
+two NORMAL messages, each with Rectangle objects that contain
+a bozoLevel property. One has this property set to
+10, the other to 3.
 
-  Creates a Filter, named 'bozoFilter' with an anonymous pipe listener
-  feeding the output back into this test. The filter funciton is an
-  anonymous function that throws an error if the message's bozoLevel
-  property is greater than the filter parameter bozoThreshold.
-  the anonymous filter parameters object has a bozoThreshold
-  value of 5.
+Creates a Filter, named 'bozoFilter' with an anonymous pipe listener
+feeding the output back into this test. The filter funciton is an
+anonymous function that throws an error if the message's bozoLevel
+property is greater than the filter parameter bozoThreshold.
+the anonymous filter parameters object has a bozoThreshold
+value of 5.
 
-  The messages are written to the filter and it is shown that the
-  message with the bozoLevel of 10 is not written, while
-  the message with the bozoLevel of 3 is.
+The messages are written to the filter and it is shown that the
+message with the bozoLevel of 10 is not written, while
+the message with the bozoLevel of 3 is.
 */
 func TestUseFilterToStopAMessage(t *testing.T) {
 	// create messages to send to the queue

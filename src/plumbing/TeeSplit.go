@@ -14,7 +14,7 @@ import (
 )
 
 /*
-Splitting Pipe Tee.
+TeeSplit Splitting Pipe Tee.
 
 Writes input messages to multiple output pipe fittings.
 */
@@ -24,12 +24,12 @@ type TeeSplit struct {
 }
 
 /*
-  Connect the output IPipeFitting.
+Connect the output IPipeFitting.
 
-  NOTE: You can connect as many outputs as you want
-  by calling this method repeatedly.
+NOTE: You can connect as many outputs as you want
+by calling this method repeatedly.
 
-  - parameter output: the IPipeFitting to connect for output.
+- parameter output: the IPipeFitting to connect for output.
 */
 func (self *TeeSplit) Connect(output interfaces.IPipeFitting) bool {
 	self.outputsMutex.Lock()
@@ -40,12 +40,12 @@ func (self *TeeSplit) Connect(output interfaces.IPipeFitting) bool {
 }
 
 /*
-  Disconnect the most recently connected output fitting. (LIFO)
+Disconnect the most recently connected output fitting. (LIFO)
 
-  To disconnect all outputs, you must call this
-  method repeatedly untill it returns nil.
+To disconnect all outputs, you must call this
+method repeatedly untill it returns nil.
 
-  - parameter output: the IPipeFitting to connect for output.
+- parameter output: the IPipeFitting to connect for output.
 */
 func (self *TeeSplit) Disconnect() interfaces.IPipeFitting {
 	self.outputsMutex.Lock()
@@ -57,17 +57,17 @@ func (self *TeeSplit) Disconnect() interfaces.IPipeFitting {
 }
 
 /*
-  Disconnect a given output fitting.
+DisconnectFitting Disconnect a given output fitting.
 
-  If the fitting passed in is connected
-  as an output of this TeeSplit, then
-  it is disconnected and the reference returned.
+If the fitting passed in is connected
+as an output of this TeeSplit, then
+it is disconnected and the reference returned.
 
-  If the fitting passed in is not connected as an
-  output of this TeeSplit, then nil
-  is returned.
+If the fitting passed in is not connected as an
+output of this TeeSplit, then nil
+is returned.
 
-  - parameter output: the IPipeFitting to connect for output.
+- parameter output: the IPipeFitting to connect for output.
 */
 func (self *TeeSplit) DisconnectFitting(target interfaces.IPipeFitting) interfaces.IPipeFitting {
 	self.outputsMutex.Lock()
@@ -85,14 +85,14 @@ func (self *TeeSplit) DisconnectFitting(target interfaces.IPipeFitting) interfac
 }
 
 /*
-  Write the message to all connected outputs.
+Write the message to all connected outputs.
 
-  Returns false if any output returns false,
-  but all outputs are written to regardless.
+Returns false if any output returns false,
+but all outputs are written to regardless.
 
-  - parameter message: the message to write
+- parameter message: the message to write
 
-  - returns: Boolean whether any connected outputs failed
+- returns: Boolean whether any connected outputs failed
 */
 func (self *TeeSplit) Write(message interfaces.IPipeMessage) bool {
 	self.outputsMutex.RLock()

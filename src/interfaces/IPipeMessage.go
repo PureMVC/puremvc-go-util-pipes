@@ -9,11 +9,11 @@
 package interfaces
 
 /*
-Pipe Message Interface.
+IPipeMessage Pipe Message Interface.
 
-IPipeMessages are objects written intoto a Pipeline,
+IPipeMessages are objects written into a Pipeline,
 composed of IPipeFittings. The message is passed from
-one fitting to the next in syncrhonous fashion.
+one fitting to the next in synchronous fashion.
 
 Depending on type, messages may be handled differently by the
 fittings.

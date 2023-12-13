@@ -18,7 +18,7 @@ const (
 )
 
 /*
-Filter Control Message.
+FilterControlMessage Filter Control Message.
 
 A special message type for controlling the behavior of a Filter.
 
@@ -50,49 +50,49 @@ type FilterControlMessage struct {
 }
 
 /*
-	Constructor
- */
+NewFilterControlMessage	Constructor
+*/
 func NewFilterControlMessage(_type string, name string, filter func(interfaces.IPipeMessage, interface{}) bool, params interface{}) *FilterControlMessage {
 	return &FilterControlMessage{Message: Message{_type: _type}, name: name, filter: filter, params: params}
 }
 
 /*
-  Set the target filter name.
+SetName Set the target filter name.
 */
 func (self *FilterControlMessage) SetName(name string) {
 	self.name = name
 }
 
 /*
-  Get the target filter name.
+Name  Get the target filter name.
 */
 func (self *FilterControlMessage) Name() string {
 	return self.name
 }
 
 /*
-  Set the filter function.
+SetFilter  Set the filter function.
 */
 func (self *FilterControlMessage) SetFilter(filter func(interfaces.IPipeMessage, interface{}) bool) {
 	self.filter = filter
 }
 
 /*
-  Get the filter function.
+Filter  Get the filter function.
 */
 func (self *FilterControlMessage) Filter() func(interfaces.IPipeMessage, interface{}) bool {
 	return self.filter
 }
 
 /*
-  Set the parameters object.
+SetParams  Set the parameters object.
 */
 func (self *FilterControlMessage) SetParams(params interface{}) {
 	self.params = params
 }
 
 /*
-  Get the parameters object.
+Params  Get the parameters object.
 */
 func (self *FilterControlMessage) Params() interface{} {
 	return self.params

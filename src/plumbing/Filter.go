@@ -14,7 +14,7 @@ import (
 )
 
 /*
-Pipe Filter.
+Filter Pipe Filter.
 
 Filters may modify the contents of messages before writing them to
 their output pipe fitting. They may also have their parameters and
@@ -30,39 +30,39 @@ type Filter struct {
 }
 
 /*
-  Handle the incoming message.
+Write Handle the incoming message.
 
-  If message type is normal, filter the message (unless in BYPASS mode)
-  and write the result to the output pipe fitting if the filter
-  operation is successful.
+If message type is normal, filter the message (unless in BYPASS mode)
+and write the result to the output pipe fitting if the filter
+operation is successful.
 
-  The messages.SET_PARAMS message type tells the Filter
-  that the message class is FilterControlMessage, which it
-  casts the message to in order to retrieve the filter parameters
-  object if the message is addressed to this filter.
+The messages.SET_PARAMS message type tells the Filter
+that the message class is FilterControlMessage, which it
+casts the message to in order to retrieve the filter parameters
+object if the message is addressed to this filter.
 
-  The messages.SET_FILTER message type tells the Filter
-  that the message class is FilterControlMessage,
-  which it casts the message to in order to retrieve the filter function.
+The messages.SET_FILTER message type tells the Filter
+that the message class is FilterControlMessage,
+which it casts the message to in order to retrieve the filter function.
 
-  The messages.BYPASS message type tells the Filter
-  that it should go into Bypass mode operation, passing all normal
-  messages through unfiltered.
+The messages.BYPASS message type tells the Filter
+that it should go into Bypass mode operation, passing all normal
+messages through unfiltered.
 
-  The messages.FILTER message type tells the Filter
-  that it should go into Filtering mode operation, filtering all
-  normal normal messages before writing out. This is the default
-  mode of operation and so this message type need only be sent to
-  cancel a previous BYPASS message.
+The messages.FILTER message type tells the Filter
+that it should go into Filtering mode operation, filtering all
+normal messages before writing out. This is the default
+mode of operation and so this message type need only be sent to
+cancel a previous BYPASS message.
 
-  The Filter only acts on the control message if it is targeted
-  to this named filter instance. Otherwise it writes through to the
-  output.
+The Filter only acts on the control message if it is targeted
+to this named filter instance. Otherwise, it writes through to the
+output.
 
-  - parameter message: IPipeMessage to write on the output
+- parameter message: IPipeMessage to write on the output
 
-  - returns: Boolean True if the filter process does not throw an error and subsequent operations
-  in the pipeline succede.
+- returns: Boolean True if the filter process does not throw an error and subsequent operations
+in the pipeline succeeds.
 */
 func (self *Filter) Write(message interfaces.IPipeMessage) bool {
 	success := true
@@ -100,19 +100,19 @@ func (self *Filter) Write(message interfaces.IPipeMessage) bool {
 		} else {
 			success = self.Output.Write(message)
 		}
-	default:   // Write control messages for other fittings through
+	default: // Write control messages for other fittings through
 		success = self.Output.Write(message)
 	}
 
 	return success
 }
 
-// Is the message directed at this filter instance?
+// IsTarget Is the message directed at this filter instance?
 func (self *Filter) IsTarget(message interfaces.IPipeMessage) bool {
 	return message.(*messages.FilterControlMessage).Name() == self.Name
 }
 
-// Filter the message.
+// ApplyFilter Filter the message.
 func (self *Filter) ApplyFilter(message interfaces.IPipeMessage) bool {
 	return self.Filter(message, self.Params)
 }

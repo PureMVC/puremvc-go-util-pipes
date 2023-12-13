@@ -9,20 +9,20 @@
 package interfaces
 
 /*
-Pipe Fitting Interface.
+IPipeFitting Pipe Fitting Interface.
 
 An IPipeFitting can be connected to other
 IPipeFittings, forming a Pipeline.
 IPipeMessages are written to one end of a
 Pipeline by some client code. The messages are then
-transfered in synchronous fashion from one fitting to the next.
+transferred in synchronous fashion from one fitting to the next.
 */
 type IPipeFitting interface {
 	/*
 	  Connect another Pipe Fitting to the output.
 
 	  Fittings connect and write to
-	  other fittings in a one way syncrhonous
+	  other fittings in a one way synchronous
 	  chain, as water typically flows one direction
 	  through a physical pipe.
 
@@ -38,7 +38,7 @@ type IPipeFitting interface {
 	  into a pipeline, you need to keep (at least briefly)
 	  a reference to both sides of the pipeline in order to
 	  connect them to the input and output of whatever
-	  fiting that you're splicing in.
+	  fitting that you're splicing in.
 
 	  - returns: IPipeFitting the now disconnected output fitting
 	*/

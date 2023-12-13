@@ -19,7 +19,7 @@ const (
 )
 
 /*
-Pipe Junction.
+Junction Pipe Junction.
 
 Manages Pipes for a Module.
 
@@ -34,31 +34,31 @@ You can send an IPipeMessage on a named INPUT Pipe
 or add a PipeListener to registered INPUT Pipe.
 */
 type Junction struct {
-	inputPipes        []string
-	outputPipes       []string
-	PipesMap          map[string]interfaces.IPipeFitting
-	PipesMapMutex     sync.RWMutex
-	PipeTypesMap      map[string]string
+	inputPipes    []string
+	outputPipes   []string
+	PipesMap      map[string]interfaces.IPipeFitting
+	PipesMapMutex sync.RWMutex
+	PipeTypesMap  map[string]string
 }
 
 /*
-  Register a pipe with the junction.
+RegisterPipe  Register a pipe with the junction.
 
-  Pipes are registered by unique name and type,
-  which must be either Junction.INPUT
-  or Junction.OUTPUT.
+Pipes are registered by unique name and type,
+which must be either Junction.INPUT
+or Junction.OUTPUT.
 
-  NOTE: You cannot have an INPUT pipe and an OUTPUT
-  pipe registered with the same name. All pipe names
-  must be unique regardless of type.
+NOTE: You cannot have an INPUT pipe and an OUTPUT
+pipe registered with the same name. All pipe names
+must be unique regardless of type.
 
-  - parameter name: name of the Pipe Fitting
+- parameter name: name of the Pipe Fitting
 
-  - parameter type: input or output
+- parameter type: input or output
 
-  - parameter pipe: instance of the IPipeFitting
+- parameter pipe: instance of the IPipeFitting
 
-  - returns: Bool true if successfully registered. false if another pipe exists by that name.
+- returns: Bool true if successfully registered. false if another pipe exists by that name.
 */
 func (self *Junction) RegisterPipe(name string, _type string, pipe interfaces.IPipeFitting) bool {
 	self.PipesMapMutex.Lock()
@@ -83,11 +83,11 @@ func (self *Junction) RegisterPipe(name string, _type string, pipe interfaces.IP
 }
 
 /*
-  Does this junction have a pipe by this name?
+HasPipe Does this junction have a pipe by this name?
 
-  - parameter name: the pipe to check for
+- parameter name: the pipe to check for
 
-  - returns: Bool whether as pipe is registered with that name.
+- returns: Bool whether as pipe is registered with that name.
 */
 func (self *Junction) HasPipe(name string) bool {
 	self.PipesMapMutex.RLock()
@@ -97,11 +97,11 @@ func (self *Junction) HasPipe(name string) bool {
 }
 
 /*
-  Does this junction have an INPUT pipe by this name?
+HasInputPipe Does this junction have an INPUT pipe by this name?
 
-  - parameter name: the pipe to check for
+- parameter name: the pipe to check for
 
-  - returns: Bool whether an INPUT pipe is registered with that name.
+- returns: Bool whether an INPUT pipe is registered with that name.
 */
 func (self *Junction) HasInputPipe(name string) bool {
 	self.PipesMapMutex.RLock()
@@ -111,11 +111,11 @@ func (self *Junction) HasInputPipe(name string) bool {
 }
 
 /*
-  Does this junction have an OUTPUT pipe by this name?
+HasOutputPipe Does this junction have an OUTPUT pipe by this name?
 
-  - parameter name: the pipe to check for
+- parameter name: the pipe to check for
 
-  - returns: Bool whether an OUTPUT pipe is registered with that name.
+- returns: Bool whether an OUTPUT pipe is registered with that name.
 */
 func (self *Junction) HasOutputPipe(name string) bool {
 	self.PipesMapMutex.RLock()
@@ -125,13 +125,13 @@ func (self *Junction) HasOutputPipe(name string) bool {
 }
 
 /*
-  Remove the pipe with this name if it is registered.
+RemovePipe Remove the pipe with this name if it is registered.
 
-  NOTE: You cannot have an INPUT pipe and an OUTPUT
-  pipe registered with the same name. All pipe names
-  must be unique regardless of type.
+NOTE: You cannot have an INPUT pipe and an OUTPUT
+pipe registered with the same name. All pipe names
+must be unique regardless of type.
 
-  - parameter name: the pipe to remove
+- parameter name: the pipe to remove
 */
 func (self *Junction) RemovePipe(name string) {
 	self.PipesMapMutex.Lock()
@@ -156,11 +156,11 @@ func (self *Junction) RemovePipe(name string) {
 }
 
 /*
-  Retrieve the named pipe.
+RetrievePipe Retrieve the named pipe.
 
-  - parameter name: the pipe to retrieve
+- parameter name: the pipe to retrieve
 
-  - returns: IPipeFitting the pipe registered by the given name if it exists
+- returns: IPipeFitting the pipe registered by the given name if it exists
 */
 func (self *Junction) RetrievePipe(name string) interfaces.IPipeFitting {
 	self.PipesMapMutex.RLock()
@@ -170,15 +170,15 @@ func (self *Junction) RetrievePipe(name string) interfaces.IPipeFitting {
 }
 
 /*
-  Add a PipeListener to an INPUT pipe.
+AddPipeListener Add a PipeListener to an INPUT pipe.
 
-  NOTE: there can only be one PipeListener per pipe, and the listener function must accept an IPipeMessage as its sole argument.
+NOTE: there can only be one PipeListener per pipe, and the listener function must accept an IPipeMessage as its sole argument.
 
-  - parameter inputPipeName: the INPUT pipe to add a PipeListener to
+- parameter inputPipeName: the INPUT pipe to add a PipeListener to
 
-  - parameter context: the calling context or 'this' object
+- parameter context: the calling context or 'this' object
 
-  - parameter listener: the function on the context to call
+- parameter listener: the function on the context to call
 */
 func (self *Junction) AddPipeListener(inputPipeName string, context interface{}, listener func(message interfaces.IPipeMessage)) bool {
 	success := false
@@ -192,11 +192,11 @@ func (self *Junction) AddPipeListener(inputPipeName string, context interface{},
 }
 
 /*
-  Send a message on an OUTPUT pipe.
+SendMessage Send a message on an OUTPUT pipe.
 
-  - parameter outputPipeName: the OUTPUT pipe to send the message on
+- parameter outputPipeName: the OUTPUT pipe to send the message on
 
-  - parameter message: the IPipeMessage to send
+- parameter message: the IPipeMessage to send
 */
 func (self *Junction) SendMessage(outputPipeName string, message interfaces.IPipeMessage) bool {
 	self.PipesMapMutex.RLock()

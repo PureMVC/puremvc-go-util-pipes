@@ -11,7 +11,7 @@ package plumbing
 import "github.com/puremvc/puremvc-go-util-pipes/src/interfaces"
 
 /*
-Merging Pipe Tee.
+TeeMerge Merging Pipe Tee.
 
 Writes the messages from multiple input pipelines into
 a single output pipe fitting.
@@ -21,12 +21,12 @@ type TeeMerge struct {
 }
 
 /*
-  Connect an input IPipeFitting.
+ConnectInput  Connect an input IPipeFitting.
 
-  NOTE: You can connect as many inputs as you want
-  by calling this method repeatedly.
+NOTE: You can connect as many inputs as you want
+by calling this method repeatedly.
 
-  - parameter input: the IPipeFitting to connect for input.
+- parameter input: the IPipeFitting to connect for input.
 */
 func (self *TeeMerge) ConnectInput(input interfaces.IPipeFitting) bool {
 	return input.Connect(self)

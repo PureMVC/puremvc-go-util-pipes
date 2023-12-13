@@ -7,7 +7,7 @@ This utility provides the capability for creating pipelines that pass messages b
 
 ## Installation
 ```
-require github.com/puremvc/puremvc-go-util-pipes v1.0.0
+require github.com/puremvc/puremvc-go-util-pipes v1.1.0
 ```
 
 ## Platforms / Technologies
@@ -18,7 +18,7 @@ require github.com/puremvc/puremvc-go-util-pipes v1.0.0
 * [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows)
 
 ## Status
-Production - [Version 1.0](https://github.com/PureMVC/puremvc-go-util-pipes/blob/master/VERSION)
+Production - [Version 1.1](https://github.com/PureMVC/puremvc-go-util-pipes/blob/master/VERSION)
 
 ## License
 * PureMVC Go MultiCore Utility – Pipes - Copyright © 2019 [Saad Shams](https://www.linkedin.com/in/muizz/)
